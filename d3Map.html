@@ -1,31 +1,71 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset = "UTF-8"/>
-		<title>map</title>
-		
-		<style>
-			* {font-family: "Helvetica Neue";}
-			p {font-size: 0.85em;}
-			svg {background: #efefef}
-		</style>
 
-	</head>
-	<body>
-		<h1>Map</h1>
-		<div id="map"></div>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
-		<script src="http://d3js.org/topojson.v1.min.js"></script>
-		<script src="visualizations.js"></script>
-		</svg>
-	</body>
+	<meta charset="UTF-8" />
+	<title>Chicago Community Areas</title>
+
+	<style>
+		* { font-family: "Helvetica Neue"; }
+		p { font-size: 0.85em; }
+		svg { background: #efefef }
+
+		body {
+			margin: 0;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		svg {
+			width: 100%;
+			height: 100%;
+			background: #efefef
+		}
+
+		h1 {
+			font-family: arial;
+			font-size: 2em;
+			color: #333;
+		}
+
+		#info {
+			position: absolute;
+			top: 550px;
+			left: 10px;
+		}
+	</style>
+
+
+<body>
+	<h1>Chicago Community Areas</h1>
+	
+	<div id="info"><h1 id="community_name"></h1></div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
+	<script src="edit_visualizations.js"></script>
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+	<script>
+
+		var width = 600;
+		var height = 500;
+
+		var map_canvas = d3.select("body")
+			.append("svg")
+			.attr("width", width)
+			.attr("height", height);
+
+		var map_data = 'city.topojson'
+		//var ca_data ... 
+
+		var MV = MapVis();
+		MV.drawMapVis(map_canvas, map_data);
+
+	</script>
+
+
+
+</body>
+
 </html>
-
-
-
-
-
-
-
-
-
